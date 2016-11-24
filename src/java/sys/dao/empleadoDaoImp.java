@@ -25,7 +25,35 @@ public class empleadoDaoImp implements empleadoDao{
         
         String hql ="FROM Tbempleado as e inner join fetch e.tbpais left join fetch e.tbdepartamento left join fetch e.tbmunicipio";
         
+        try {
+            ListarEmpleados = session.createQuery(hql).list();
+            transaction.commit();
+            session.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            transaction.rollback();
+        }
+        
+        
     return ListarEmpleados;
     }
     
+    @Override
+    public void nuevoEmpleado(Tbempleado tbempleado) {
+        Session session = null;
+        
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            session.save(tbempleado);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            session.beginTransaction().rollback();
+        }finally{
+            if (session!=null){
+                session.close();
+            }
+        }
+    }
 }

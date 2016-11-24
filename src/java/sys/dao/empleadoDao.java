@@ -15,4 +15,5 @@ import sys.model.Tbempleado;
 public interface empleadoDao {
         
     public List<Tbempleado> mostrarEmpleados(); 
+    public void nuevoEmpleado(Tbempleado tbempleado);
 }
