@@ -1,5 +1,5 @@
 package sys.model;
-// Generated 24/11/2016 10:10:07 AM by Hibernate Tools 4.3.1
+// Generated 10-21-2015 08:14:45 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -13,6 +13,7 @@ public class Tbpais  implements java.io.Serializable {
 
      private Integer idPais;
      private String nombrePais;
+     private Set<Tbempleado> tbempleados = new HashSet<Tbempleado>(0);
      private Set<Tbdepartamento> tbdepartamentos = new HashSet<Tbdepartamento>(0);
 
     public Tbpais() {
@@ -22,8 +23,9 @@ public class Tbpais  implements java.io.Serializable {
     public Tbpais(String nombrePais) {
         this.nombrePais = nombrePais;
     }
-    public Tbpais(String nombrePais, Set<Tbdepartamento> tbdepartamentos) {
+    public Tbpais(String nombrePais, Set<Tbempleado> tbempleados, Set<Tbdepartamento> tbdepartamentos) {
        this.nombrePais = nombrePais;
+       this.tbempleados = tbempleados;
        this.tbdepartamentos = tbdepartamentos;
     }
    
@@ -40,6 +42,13 @@ public class Tbpais  implements java.io.Serializable {
     
     public void setNombrePais(String nombrePais) {
         this.nombrePais = nombrePais;
+    }
+    public Set<Tbempleado> getTbempleados() {
+        return this.tbempleados;
+    }
+    
+    public void setTbempleados(Set<Tbempleado> tbempleados) {
+        this.tbempleados = tbempleados;
     }
     public Set<Tbdepartamento> getTbdepartamentos() {
         return this.tbdepartamentos;

@@ -1,5 +1,5 @@
 package sys.model;
-// Generated 24/11/2016 10:10:07 AM by Hibernate Tools 4.3.1
+// Generated 10-21-2015 08:14:45 AM by Hibernate Tools 4.3.1
 
 
 
@@ -10,34 +10,37 @@ public class Tbempleado  implements java.io.Serializable {
 
 
      private Integer idEmpleado;
+     private Tbdepartamento tbdepartamento;
+     private Tbmunicipio tbmunicipio;
+     private Tbpais tbpais;
      private String nombres;
      private String apellidos;
      private String direccion;
-     private int idPais;
-     private int idDepartamento;
-     private int idMunicipio;
      private String codigoArea;
      private String telefono;
 
-    public Tbempleado() {
+    public Tbempleado() { 
+        tbpais = new Tbpais();
+        tbdepartamento= new Tbdepartamento();
+        tbmunicipio= new Tbmunicipio();
     }
 
 	
-    public Tbempleado(String nombres, String apellidos, String direccion, int idPais, int idDepartamento, int idMunicipio) {
+    public Tbempleado(Tbdepartamento tbdepartamento, Tbmunicipio tbmunicipio, Tbpais tbpais, String nombres, String apellidos, String direccion) {
+        this.tbdepartamento = tbdepartamento;
+        this.tbmunicipio = tbmunicipio;
+        this.tbpais = tbpais;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.direccion = direccion;
-        this.idPais = idPais;
-        this.idDepartamento = idDepartamento;
-        this.idMunicipio = idMunicipio;
     }
-    public Tbempleado(String nombres, String apellidos, String direccion, int idPais, int idDepartamento, int idMunicipio, String codigoArea, String telefono) {
+    public Tbempleado(Tbdepartamento tbdepartamento, Tbmunicipio tbmunicipio, Tbpais tbpais, String nombres, String apellidos, String direccion, String codigoArea, String telefono) {
+       this.tbdepartamento = tbdepartamento;
+       this.tbmunicipio = tbmunicipio;
+       this.tbpais = tbpais;
        this.nombres = nombres;
        this.apellidos = apellidos;
        this.direccion = direccion;
-       this.idPais = idPais;
-       this.idDepartamento = idDepartamento;
-       this.idMunicipio = idMunicipio;
        this.codigoArea = codigoArea;
        this.telefono = telefono;
     }
@@ -48,6 +51,27 @@ public class Tbempleado  implements java.io.Serializable {
     
     public void setIdEmpleado(Integer idEmpleado) {
         this.idEmpleado = idEmpleado;
+    }
+    public Tbdepartamento getTbdepartamento() {
+        return this.tbdepartamento;
+    }
+    
+    public void setTbdepartamento(Tbdepartamento tbdepartamento) {
+        this.tbdepartamento = tbdepartamento;
+    }
+    public Tbmunicipio getTbmunicipio() {
+        return this.tbmunicipio;
+    }
+    
+    public void setTbmunicipio(Tbmunicipio tbmunicipio) {
+        this.tbmunicipio = tbmunicipio;
+    }
+    public Tbpais getTbpais() {
+        return this.tbpais;
+    }
+    
+    public void setTbpais(Tbpais tbpais) {
+        this.tbpais = tbpais;
     }
     public String getNombres() {
         return this.nombres;
@@ -69,27 +93,6 @@ public class Tbempleado  implements java.io.Serializable {
     
     public void setDireccion(String direccion) {
         this.direccion = direccion;
-    }
-    public int getIdPais() {
-        return this.idPais;
-    }
-    
-    public void setIdPais(int idPais) {
-        this.idPais = idPais;
-    }
-    public int getIdDepartamento() {
-        return this.idDepartamento;
-    }
-    
-    public void setIdDepartamento(int idDepartamento) {
-        this.idDepartamento = idDepartamento;
-    }
-    public int getIdMunicipio() {
-        return this.idMunicipio;
-    }
-    
-    public void setIdMunicipio(int idMunicipio) {
-        this.idMunicipio = idMunicipio;
     }
     public String getCodigoArea() {
         return this.codigoArea;
